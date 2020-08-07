@@ -51,10 +51,18 @@ const isCorrectDate = (str) => {
   return regForDate.test(str);
 };
 
+// const getInfo = (outputText, func) => {
+//   let data = prompt(outputText, "");
+//   while (!func(data)) {
+//     data = prompt(`!!! Invalid input !!! ${outputText}`, "");
+//   }
+//   return data[0].toUpperCase() + data.slice(1);
+// };
 const getInfo = (outputText, func) => {
   let data = prompt(outputText, "");
-  while (!func(data)) {
-    data = prompt(`!!! Invalid input !!! ${outputText}`, "");
+  if (!func(data)) {
+    data = alert(`!!! Invalid input !!! ${outputText}`, "");
+    return getInfo(outputText, func);
   }
   return data[0].toUpperCase() + data.slice(1);
 };
